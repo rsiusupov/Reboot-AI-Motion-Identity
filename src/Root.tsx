@@ -1,15 +1,20 @@
 import { Composition } from "remotion";
-import { MyComposition } from "./Composition";
+import {
+  DynamicGridMorphDemo,
+  DYNAMIC_GRID_MORPH_DURATION,
+} from "./compositions/DynamicGridMorphDemo";
+import { activeFormat } from "./theme/formats";
+import { masterFps } from "./theme/timing";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <Composition
       id="RebootMotionIdentity"
-      component={MyComposition}
-      durationInFrames={90}
-      fps={30}
-      width={1920}
-      height={1080}
+      component={DynamicGridMorphDemo}
+      durationInFrames={DYNAMIC_GRID_MORPH_DURATION}
+      fps={masterFps}
+      width={activeFormat.widthPx}
+      height={activeFormat.heightPx}
     />
   );
 };
